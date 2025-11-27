@@ -1,0 +1,23 @@
+name: Deploy Application
+
+on:
+  workflow_dispatch:
+    inputs:
+      service:
+        description: "Service to deploy"
+        required: false
+        default: "backend"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Simulate build
+      run: echo "Building ${{ github.event.inputs.service }} service..."
+
+    - name: Simulate deployment
+      run: echo "Deploying ${{ github.event.inputs.service }} service successfully!"
